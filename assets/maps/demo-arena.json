@@ -1,0 +1,52 @@
+{
+  "id": "demo-arena",
+  "name": "Starter Arena",
+  "author": "Meccha Team",
+  "version": 1,
+  "spawnPoints": {
+    "hider": [
+      { "x": -4, "y": 0, "z": -4 },
+      { "x": 4, "y": 0, "z": 4 }
+    ],
+    "seeker": [{ "x": 0, "y": 0, "z": -8 }]
+  },
+  "lighting": {
+    "ambientIntensity": 0.5,
+    "directionalIntensity": 1
+  },
+  "objects": [
+    {
+      "id": "wall-n",
+      "type": "wall",
+      "transform": {
+        "position": { "x": 0, "y": 1.5, "z": -10 },
+        "rotation": { "x": 0, "y": 0, "z": 0 },
+        "scale": { "x": 20, "y": 3, "z": 0.5 }
+      },
+      "material": { "color": "#8b6914" },
+      "collider": "box"
+    },
+    {
+      "id": "pillar-1",
+      "type": "pillar",
+      "transform": {
+        "position": { "x": -5, "y": 1.5, "z": 0 },
+        "rotation": { "x": 0, "y": 0, "z": 0 },
+        "scale": { "x": 1, "y": 3, "z": 1 }
+      },
+      "material": { "color": "#654321" },
+      "collider": "box"
+    },
+    {
+      "id": "crate-1",
+      "type": "crate",
+      "transform": {
+        "position": { "x": 5, "y": 0.5, "z": 3 },
+        "rotation": { "x": 0, "y": 0.45, "z": 0 },
+        "scale": { "x": 1.5, "y": 1.5, "z": 1.5 }
+      },
+      "material": { "color": "#daa520" },
+      "collider": "box"
+    }
+  ]
+}

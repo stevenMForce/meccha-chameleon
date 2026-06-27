@@ -1,0 +1,26 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: apps/server/Dockerfile
+    ports:
+      - "2567:2567"
+    environment:
+      - PORT=2567
+      - NODE_ENV=development
+    volumes:
+      - ./apps/server/src:/app/apps/server/src
+      - ./packages/shared/src:/app/packages/shared/src
+
+  client:
+    image: node:22-alpine
+    working_dir: /app
+    command: sh -c "npm install && npm run dev --workspace=@meccha/client"
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_COLYSEUS_URL=ws://localhost:2567
+    volumes:
+      - .:/app
+    depends_on:
+      - server
