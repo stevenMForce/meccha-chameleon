@@ -28,6 +28,15 @@ npm run dev
 VITE_COLYSEUS_URL=wss://your-game-server.example.com
 ```
 
-### Railway 遊戲伺服器
+### Railway 遊戲伺服器（正式環境）
 
-使用根目錄 `Dockerfile` 或 `railway.toml` 部署 `apps/server`（port 2567，health: `/health`）。
+1. 登入 Railway：`npx @railway/cli login`
+2. 在專案根目錄執行：
+   ```bash
+   npx @railway/cli init
+   npx @railway/cli up --detach
+   npx @railway/cli domain
+   ```
+3. 取得公開網址後，在 Vercel 更新 `VITE_COLYSEUS_URL` 為 `wss://你的-railway-網址`，再重新部署前端。
+
+或使用 [Render Blueprint](https://render.com/deploy?repo=https://github.com/stevenMForce/meccha-chameleon) 一鍵部署 `render.yaml`。
