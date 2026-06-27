@@ -8,11 +8,12 @@ RUN npm run build --workspace=@meccha/shared && npm run build --workspace=@mecch
 
 FROM node:22-alpine
 WORKDIR /app
+RUN apk add --no-cache wget
 ENV NODE_ENV=production
 COPY --from=builder /app/package.json /app/package-lock.json ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/packages/shared ./packages/shared
 COPY --from=builder /app/apps/server ./apps/server
 EXPOSE 2567
-HEALTHCHECK CMD wget -qO- http://localhost:2567/health || exit 1
+HEALTHCHECK CMD wget -qO- http://127.0.0.1:${PORT:-2567}/health || exit 1
 CMD ["node", "apps/server/dist/index.js"]

@@ -64,6 +64,6 @@ const gameServer = new Server({
 gameServer.define("lobby", LobbyRoom).filterBy(["isPrivate"]);
 gameServer.define("game", GameRoom);
 
-httpServer.listen(PORT, () => {
-  console.log(`Meccha Chameleon server listening on :${PORT}`);
+httpServer.listen(PORT, "0.0.0.0", () => {
+  console.log(`Meccha Chameleon server listening on 0.0.0.0:${PORT}`);
 });

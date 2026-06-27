@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: meccha-chameleon-server
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 2567
